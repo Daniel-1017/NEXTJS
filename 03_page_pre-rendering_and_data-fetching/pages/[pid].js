@@ -3,6 +3,10 @@ import fs from 'fs/promises';
 import { Fragment } from 'react';
 
 const ProductDetailPage = ({ loadedProduct }) => {
+  if (!loadedProduct) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Fragment>
       <h1>{loadedProduct.title}</h1>
@@ -26,6 +30,12 @@ export const getStaticProps = async context => {
 
   const product = data.products.find(product => product.id === productId);
 
+  if (!product) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       loadedProduct: product,
@@ -41,7 +51,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths: pathsWithParams,
-    fallback: false,
+    fallback: true,
   };
 };
 
