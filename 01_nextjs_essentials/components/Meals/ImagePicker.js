@@ -47,6 +47,7 @@ const ImagePicker = ({ label, name }) => {
                     className={classes.input}
                     ref={imageInput}
                     onChange={handleImageChange}
+                    required
                 />
                 <button
                     className={classes.button}
