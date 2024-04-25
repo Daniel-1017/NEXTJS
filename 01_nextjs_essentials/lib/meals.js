@@ -9,3 +9,6 @@ export const getMeals = async () => {
 
     return db.prepare("SELECT * FROM meals").all();
 };
+
+export const getMeal = slug =>
+    db.prepare("SELECT * FROM meals WHERE slug = ?").get(slug);
