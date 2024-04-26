@@ -5,38 +5,31 @@ import MainHeaderBackground from "./MainHeaderBackground";
 import classes from "./MainHeader.module.css";
 
 import logoImg from "@/assets/logo.png";
-import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
 
 const MainHeader = () => {
-    return (
-        <>
-            <MainHeaderBackground />
-            <header className={classes.header}>
-                <Link href="/" className={classes.logo}>
-                    <Image
-                        src={logoImg}
-                        alt="A plate with food on it"
-                        priority
-                    />
-                    NextLevel Food
-                </Link>
+  return (
+    <>
+      <MainHeaderBackground />
+      <header className={classes.header}>
+        <Link href="/" className={classes.logo}>
+          <Image src={logoImg} alt="A plate with food on it" priority />
+          NextLevel Food
+        </Link>
 
-                <nav className={classes.nav}>
-                    <ul>
-                        <li>
-                            <NavLink href="/meals">Browse Meals</NavLink>
-                        </li>
-                        <li>
-                            <NavLink href="/community">
-                                Foodie Community
-                            </NavLink>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-        </>
-    );
+        <nav className={classes.nav}>
+          <ul>
+            <li>
+              <NavLink href="/meals">Browse Meals</NavLink>
+            </li>
+            <li>
+              <NavLink href="/community">Foodie Community</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </>
+  );
 };
 
 export default MainHeader;
