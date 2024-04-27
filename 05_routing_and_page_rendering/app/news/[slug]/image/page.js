@@ -1,7 +1,7 @@
 import { DUMMY_NEWS } from "@/dummy-news";
 import { notFound } from "next/navigation";
 
-const ImagePath = ({ params }) => {
+const ImagePage = ({ params }) => {
   const { slug: newsSlug } = params;
 
   const newsItem = DUMMY_NEWS.find(newsItem => newsItem.slug === newsSlug);
@@ -15,4 +15,4 @@ const ImagePath = ({ params }) => {
   );
 };
 
-export default ImagePath;
+export default ImagePage;
