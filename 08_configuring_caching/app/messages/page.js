@@ -11,7 +11,8 @@ export default async function MessagesPage() {
   const response = await fetch('http://localhost:8080/messages', {
     // cache: "no-store" // data will not be cached
     next: {
-      revalidate: 5 // the cached data should be re-used for 5 seconds, and then it should send a request to get new data
+      // revalidate: 5 // the cached data should be re-used for 5 seconds, and then it should send a request to get new data
+      tags: ["msg"]
     }
   });
   const messages = await response.json();
