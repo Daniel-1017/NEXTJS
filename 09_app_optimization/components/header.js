@@ -12,6 +12,7 @@ export default function Header() {
           // width={100}
           // height={100}
           sizes="10vw" // recommended way of resizing an image
+          priority
           alt="Mobile phone with posts feed on it"
         />
       </Link>
