@@ -1,5 +1,7 @@
 "use server";
 
+import { createUser } from "@/lib/user";
+
 export const signup = async (prevState, formData) => {
   const email = formData.get("email");
   const password = formData.get("password");
@@ -13,4 +15,6 @@ export const signup = async (prevState, formData) => {
     errors.password = "Password must be at least 8 characters long.";
 
   if (Object.keys(errors).length > 0) return { errors };
+
+  createUser(email, password);
 };
