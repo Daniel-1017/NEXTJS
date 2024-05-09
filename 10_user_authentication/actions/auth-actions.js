@@ -1,5 +1,6 @@
 "use server";
 
+import { hashUserPassword } from "@/lib/hash";
 import { createUser } from "@/lib/user";
 
 export const signup = async (prevState, formData) => {
@@ -16,5 +17,7 @@ export const signup = async (prevState, formData) => {
 
   if (Object.keys(errors).length > 0) return { errors };
 
-  createUser(email, password);
+  const hashedPassword = hashUserPassword(password);
+
+  createUser(email, hashedPassword);
 };
