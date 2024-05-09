@@ -1,6 +1,6 @@
 "use server";
 
-import { createAuthSession } from "@/lib/auth";
+import { createAuthSession, destroySession } from "@/lib/auth";
 import { hashUserPassword, verifyPassword } from "@/lib/hash";
 import { createUser, getUserByEmail } from "@/lib/user";
 import { redirect } from "next/navigation";
@@ -68,4 +68,9 @@ export const login = async (prevState, formData) => {
 export const auth = async (mode, prevState, formData) => {
   if (mode === "login") return login(prevState, formData);
   return signup(prevState, formData);
+};
+
+export const logout = async () => {
+  await destroySession();
+  redirect("/");
 };
